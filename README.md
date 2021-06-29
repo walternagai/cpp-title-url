@@ -18,7 +18,7 @@ Veja o **Feeback** no link *Pull requests* para aber se a saída do programa est
 
 - ENTRADA: o-titulo-deve-ser--legal
 
-        o-titulo-deve-ser--legal
+        O Titulo Deve Ser  Legal
 
 - ENTRADA: o-titulo-deve----ser---longo
 
