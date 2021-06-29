@@ -1,92 +1,50 @@
+#include <cstring>
 #include <iostream>
 using namespace std;
 
-const int QTDE_AMOSTRAS = 5;
-const int CONCENTRACAO_MAXIMA = 15;
-/* 
-  leAmostras (amostras)
-  Realiza a leitura de amostras que podem variar de 0 até 15.
-  amostras: vetor de amostras de tamanho QTDE_AMOSTRAS
-*/
-void leAmostras (float amostras[QTDE_AMOSTRAS]) {
-  for (int i = 0; i < QTDE_AMOSTRAS; i++) {
-    cin >> amostras[i];
-  } // fim for
-}
-
-/*
-  imprimeAmostras (amostras)
-  Imprime as amostras
-  amostras: vetor de amostras de tamanho QTDE_AMOSTRAS
-*/
-void imprimeAmostras (float amostras[QTDE_AMOSTRAS]) {
-  for (int i = 0; i < QTDE_AMOSTRAS; i++)
-    cout << amostras[i] << "\t";
-  cout << endl;
-}
-
-/*
-  amostraMinima (amostras) : minima
-  Retorna o valor mínimo de todas as amostras.
-*/
-float amostraMinima (float amostras[QTDE_AMOSTRAS]) {
-  float minima = amostras[0];
-  for (int i = 1; i < QTDE_AMOSTRAS; i++)
-    if (amostras[i] < minima)
-      minima = amostras[i];
-  return minima;
-}
+const int TAMANHO_TITULO= 127;
 
 /* 
-  amostraMaxima (amostras) : maxima
-  Retorna o valor máximo de todas as amostras.
+  trocaTracoPorEspaco (tituloURL)
+  Troque um traco por um espaço em branco.
 */
-float amostraMaxima (float amostras[QTDE_AMOSTRAS]) {
-  float maxima = amostras[0];
-  /* 
-    Verifique se existe uma amostra[i] que seja maior
-    que o valor da variável maxima
-  */
-  return maxima;
-}
-
-/* 
-  normalizaAmostras (amostras)
-  para cada amostra[i], calcule:
-  amostra[i] = (amostras[i] - minima)
-              ------------------------
-                  (maxima - minima)
-*/
-void normalizaAmostras (float amostras[QTDE_AMOSTRAS]) {
-  float minima = amostraMinima (amostras);
-  float maxima = amostraMaxima (amostras);
-  /*
-    Para cada amostras[i] execute
-    amostras[i] = (amostras[i] - minima) / (maxima-minima);
-  */
-  for (int i = 0; i < QTDE_AMOSTRAS; i++) {
-    amostras[i] = (amostras[i] - minima) / (maxima - minima);
+void trocaTracoPorEspaco (char tituloURL[]) {
+  for (int conta = 0; conta < strlen (tituloURL); conta++) {
+    if (tituloURL[conta] == '-')
+      tituloURL[conta] = ' ';
   }
 }
 
 /* 
-  mediaAmostras (amostras): media
-  Retorne a média das amostras normalizadas desconsiderando uma amostra.
+  transformaMaiuscula (letra)
+  Troque uma letra minúscula por uma letra maiúscula.
 */
-float mediaAmostras (float amostras[QTDE_AMOSTRAS]) {
-  float soma = 0;
-  /* 
-    Some cada amostras[i]
-  */
-  return soma / (QTDE_AMOSTRAS - 1);
+char transformaMaiuscula (char letra) {
+  if (letra >= 'a' && letra <= 'z')
+    return (char) (letra - 'a' + 'A');
+  return letra;
+}
+
+/* 
+  modificaTitulo (tituloURL)
+*/
+void modificaTitulo (char tituloURL[]) {
+  // Troque um traço por um espaço em branco
+  trocaTracoPorEspaco (tituloURL);
+  // A primeira letra do titulo deve ser maiúscula
+  tituloURL[0] = transformaMaiuscula (tituloURL[0]);
+  // A primeira letra após o espaço em branco
+  // deve ser uma letra maiúscula
 }
 
 int main() {
-  float amostras [QTDE_AMOSTRAS];
+  char tituloURL [TAMANHO_TITULO+1];
 
-  leAmostras (amostras);
-  normalizaAmostras (amostras);
-  cout << "Media: " << mediaAmostras (amostras) * CONCENTRACAO_MAXIMA << endl;
+  cin >> tituloURL;
+
+  modificaTitulo (tituloURL);
+
+  cout << tituloURL << endl;
 
   return 0;
 }
