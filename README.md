@@ -1,8 +1,8 @@
-# cpp-sampling-mean
+# cpp-title-url
 
-Um pesquisador da área de saúde pública realiza 5 coletas diárias de um esgoto para contagem por milhão de um vírus V616. Cada coleta é visualizada por uma câmera de alta definição e a imagem é processada por um programa de Inteligência Artificial que faz essa contagem. A contagem máxima atingida foi de 15 milhões  por amostra. O pesquisador decidiu normalizar as amostras diárias observando a contagem mínima e máxima do dia para calcular uma média, desconsiderando a amostra com contagem mínima.
+O título de uma página Web como uma página URL (*Uniform Resource Locator*) não possui espaços em branco, mas são colocados traços (ou hífens). Dado um título de uma URL com traços, modifique-o para trocar por espaços e a primeira letra após o traço deve ser maiúscula.
 
-Termine de escrever as funções do arquivo main.cpp para que calcule e amostre a média das amostras de forma normalizada.
+Termine de escrever as funções do arquivo main.cpp para realizar essas operações em um título URL.
 
 Confira se o repositório está criado em alguma das organizações GitHub:
 * [https://github.com/p7-m5-ecoi02-2021-1](https://github.com/p7-m5-ecoi02-2021-1)
@@ -12,22 +12,22 @@ Veja o **Feeback** no link *Pull requests* para aber se a saída do programa est
 
 ## Exemplos de entrada de dados e a saída esperada
 
-- ENTRADA: 2 5 6 7 15
+- ENTRADA: hello-world
 
-        Media: 7.21154
+        Hello World
 
-- ENTRADA: 2 8 10 7 15
+- ENTRADA: o-titulo-deve-ser--legal
 
-        Media: 9.23077
+        o-titulo-deve-ser--legal
 
-- ENTRADA: 1 1 10 10 15
+- ENTRADA: o-titulo-deve----ser---longo
 
-        Media: 8.57143
+        O Titulo Deve    Ser   Longo
 
-- ENTRADA: 2 10 7 6 15
+- ENTRADA: isso-pode-tambem
 
-        Media: 8.65385
+        Isso Pode Tambem
 
-- ENTRADA: 10 10 1 1 9
+- ENTRADA: o-titulo-pode-ter-12345
 
-        Media: 10.8333
+        O Titulo Pode Ter 12345
